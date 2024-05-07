@@ -1,0 +1,18 @@
+<template>
+    <div class="slds-m-top_medium slds-m-bottom_x-large">
+        <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+            Change Data Capture event 3.
+        </h2>
+        <h2>
+            Message: {displayMessage}
+        </h2>
+    </div>
+    <lightning-card title="Display Record ID and Object API Name">
+        <h2><b>Record ID:</b> {recordId}</h2>
+        <h2><b>Object API Name:</b> {objectApiName}</h2>       
+        <h2><b>Event Name:</b> {objectEventName}</h2>       
+    </lightning-card>
+    <template if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+    </template>
+</template>

@@ -1,0 +1,10 @@
+<template>
+    <lightning-card  title="Hello">
+            <p class="slds-p-horizontal_small">Card Body (custom component)</p>
+            <p class="slds-p-horizontal_small">input: {sharedData}</p>
+            <br>
+            <c-test-sibling-componant-a ondatachange={handleDataChange}></c-test-sibling-componant-a>
+            <c-test-sibling-componant-b shareddata={sharedData}></c-test-sibling-componant-b>
+            <p slot="footer">Card Footer</p>
+        </lightning-card>
+</template>

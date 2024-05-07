@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>is_Active__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>this help to control the trigger running in loop. it is updated true when trigger run first time so that trigger won&apos;t run second time.</description>
+    <externalId>false</externalId>
+    <label>is Active</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

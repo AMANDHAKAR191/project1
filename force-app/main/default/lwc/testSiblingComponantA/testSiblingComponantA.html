@@ -1,0 +1,11 @@
+<template>
+    <div class="slds-m-top_small slds-m-bottom_x-small slds-clearfix">
+        <lightning-button class="slds-p-around_medium slds-float_right" label="New" onclick={handleButtonClick}></lightning-button>
+        <h2 class="slds-text-heading_medium slds-m-bottom_medium slds-p-around_medium slds-float_none">test sibling componant a
+        </h2>
+        <!-- Default/basic -->
+        <div class="slds-p-around_medium slds-float_none lgc-bg">
+            <lightning-input type="text" label="Enter you name" placeholder="type here..." value={localData} onchange={onValueChange}></lightning-input>
+        </div>
+    </div>
+</template>

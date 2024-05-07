@@ -1,0 +1,14 @@
+<template>
+    <div style="height: 300px;">
+        <lightning-datatable
+                key-field="Id"
+                data={contactList}
+                show-row-number-column
+                row-number-offset={rowOffset}
+                suppress-bottom-bar
+                columns={columns}
+                oncellchange={handleCellChange}
+                draft-values={draftValues}>
+        </lightning-datatable>
+    </div>
+</template>

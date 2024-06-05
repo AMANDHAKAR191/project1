@@ -5,5 +5,12 @@
     "**/.sfdx": true
   },
   "salesforcedx-vscode-slds.basic.designToken": true,
-  "salesforcedx-vscode-slds.enhancements.density": true
+  "salesforcedx-vscode-slds.enhancements.density": true,
+  "salesforce.einsteinForDevelopers.enableAutocompletions": true,
+  "salesforce.einsteinForDevelopers.enableAutocompletionsByFileType": {
+    "apex": true,
+    "javascript": false,
+    "css": true,
+    "html": true
+  }
 }

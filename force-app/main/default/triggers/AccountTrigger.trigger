@@ -10,6 +10,7 @@ trigger AccountTrigger on Account (before insert,after insert,after update, befo
                 system.debug('checkpoint trigger.isInsert.isAfter.Banking');
                 AccountTriggerHandler.createContactWhenAccountisCreated(trigger.new);
             AccountTriggerHandler.associateAccountwithContact(trigger.new);
+            AccountTriggerHandler.associateContactsWithExistingAccount(trigger.new, trigger.newMap);
 		}
         when AFTER_UPDATE{
             system.debug('checkpoint trigger.isUpdate');

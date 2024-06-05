@@ -105,4 +105,55 @@ public class AccountTriggerHandler {
             }
         }
     }
+    public static void associateContactsWithExistingAccount(List<Account> newAccounts, Map<Id,Account> newAccMap) {
+        Map<String, String> accMap = new Map<String, String>();
+        
+        for (Account acc : newAccounts) {
+            accMap.put(acc.Name, acc.Id);
+        }
+        
+        Map<String, String> existingAccountsMap = new Map<String, String>();
+        for (Account existingAccount : [
+            SELECT Id, Name 
+            FROM Account 
+            WHERE Name IN :accMap.values() 
+            AND Id NOT IN : newAccMap.keySet()] // this is to exclude newly inserted account
+            ) {
+            existingAccountsMap.put(accMap.get(existingAccount.Name), existingAccount.Id);
+        }
+
+        List<Contact> contactsToUpdate = [
+            SELECT Id, AccountId 
+            FROM Contact 
+            WHERE AccountId IN :existingAccountsMap.values()];
+
+            for (Contact con : contactsToUpdate) {
+                con.AccountId = accMap.get(con.Account.Name);
+            }
+        // for (String newAccountID:accMap.values()) {
+        //     //get all existing Account's Id of  with this name
+        //     String exisAccID = existingAccountsMap.get(newAccountID);
+        //     for (Contact con : contactsToUpdate) {
+        //         if (con.AccountId == exisAccID) {
+        //             con.AccountId = newAccountID;
+        //         }
+        //     }
+        // }
+        update contactsToUpdate;
+    }
+
+    // //better approach
+    public static void associateContactsWithExistingAccount(List<Account> newAccounts) {
+        Map<String,Id> accountNameIdMap = new Map<String,Id>();
+        for(Account accountRecord: newAccounts){
+            accountNameIdMap.put(accountRecord.Name,accountRecord.Id);
+        }
+        List<Contact> contactList = [SELECT Id,AccountId,Account.Name FROM Contact WHERE Account.Name IN: accountNameIdMap.keySet()];
+        
+        for(Contact contactRecord: contactList){
+            Id newAccountId = accountNameIdMap.get(contactRecord.Account.Name);
+            contactRecord.AccountId = newAccountId;
+        }
+        update contactList;
+    }
 }

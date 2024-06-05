@@ -1,0 +1,42 @@
+<template>
+
+    <!-- <div class="slds-path">
+        <ul class="slds-path__nav" role="listbox">
+            <template for:each={labels} for:item="value" for:index="index">
+                <li key={value.key} class={value.class} data-index={value.key} onclick={handleStageClick} style={value.style}>
+                    {startUrl}
+                    <a class="slds-path__link" role="option" tabindex={value.key} style={value.style}>
+                        {value.style}
+                        {value.displayLabel}
+                        <span class="slds-path__stage" style={value.style}>
+                            <svg class="slds-icon slds-icon_x-small" aria-hidden="true" style="color: red;">
+                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
+                            </svg>
+                        </span>
+                    </a>
+                </li>
+            </template>
+        </ul>
+    </div> -->
+    Object name: {objectApiName} 
+    picklist FieldName: {pickListApiName}
+    recordId: {recordId}
+  <div class="pathBody">
+      <div class="container">
+        <template for:each={labels} for:item="value" for:index="index">
+            <li key={value.key} class="shape shape-inactive" data-index={value.key} onclick={handleStageClick} style={value.style}>
+                    <a class="shapeItem" role="option" tabindex={value.key} style={value.style}>
+                        <!-- {value.style} -->
+                        {value.displayLabel}
+                        <span style={value.style}>
+                            <svg class="slds-icon slds-icon_x-small" aria-hidden="true" style="color: red;">
+                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
+                            </svg>
+                        </span>
+                    </a>
+                </li>
+        </template>
+      </div>
+      <lightning-button variant="brand" label="Update" title="Update" onclick={onUpdate}></lightning-button>
+  </div>
+</template>

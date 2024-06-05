@@ -1,3 +1,5 @@
+Map<Id, Contact> tempMap = new Map<Id,Contact>([select Id, Name,email from Contact limit 10]);
+System.debug('tempMap: '+tempMap);
 // Use .apex files to store anonymous Apex.
 // You can execute anonymous Apex in VS Code by selecting the
 //     apex text and running the command:

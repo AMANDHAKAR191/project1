@@ -1,0 +1,61 @@
+<template>
+    <template if:true={showSpinner}>
+        <div class="exampleHolder">
+            <lightning-spinner size="medium"></lightning-spinner>
+        </div>
+    </template>
+    <lightning-input type="text" label="Input Field" value={searchText} onchange={handleInputChange}></lightning-input>
+    <p>Value entered: {searchText}</p>
+    <div style="height:auto;">
+        <lightning-datatable
+                key-field="id"
+                data={records}
+                columns={columns}
+                row-number-offset={rowOffset}
+                hide-checkbox-column="true"
+                show-row-number-column="true"
+                suppress-bottom-bar
+                onrowaction={handleRowAction}
+                oncellchange={handleCellChange}
+                draft-values={draftValues}>
+        </lightning-datatable>
+    </div>
+    <div class="slds-grid slds-grid_vertical-align-center slds-var-m-horizontal_x-small">
+        <div class="slds-col slds-size_2-of-12">
+            <lightning-button-icon
+                class="Previous"
+                icon-name="utility:chevronleft"
+                onclick={handlePrevious}
+                ><label>Restart</label></lightning-button-icon
+            >
+        </div>
+        <div class="slds-col slds-size_8-of-12 slds-text-align_center status" >
+            {totalCount} items • page {currentPageNumber} of
+            {totalPages}
+        </div>
+        <div class="slds-col slds-size_2-of-12 slds-text-align_right" >
+            <lightning-button-icon
+                disabled={isLastPage}
+                class="next"
+                icon-name="utility:chevronright"
+                onclick={handleNext} >
+                <label>Next</label>
+            </lightning-button-icon>
+        </div>
+    </div>
+    <!-- <div class="slds-m-around--medium" style="width: 30rem;">
+        <article class="slds-tile">
+            <h3 class="slds-tile__title slds-truncate" title="Record details"><a href="javascript:void(0);">Record details</a></h3>
+            <div class="slds-tile__detail">
+                <dl class="slds-list_horizontal slds-wrap">
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Name">Name:</dt>
+                    <dd class="slds-item_detail slds-truncate">Hello</dd>
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Balance">Balance:</dt>
+                    <dd class="slds-item_detail slds-truncate">
+                        <lightning-formatted-number value="value" format-style="currency"></lightning-formatted-number>
+                    </dd>
+                </dl>
+            </div>
+        </article>
+    </div> -->
+</template>

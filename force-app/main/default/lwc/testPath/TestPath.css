@@ -1,0 +1,44 @@
+.progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background: #f4f6f9;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 0 5px;
+}
+
+.stage.active {
+    background: #005fb2;
+    color: white;
+}
+
+.check-mark {
+    display: none;
+    font-size: 1.5rem;
+}
+
+.stage.active .check-mark {
+    display: block;
+}
+
+.stage-label {
+    margin-top: 5px;
+}
+
+.complete-button {
+    background: #0070d2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
